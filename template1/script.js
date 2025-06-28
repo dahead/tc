@@ -95,12 +95,18 @@ function isVideoFile(filename) {
     return videoExtensions.some(ext => filename.toLowerCase().endsWith(ext));
 }
 
+// open video in new tab
 function playVideo(filepath) {
-    const filename = filepath.split('/').pop() || filepath.split('\\').pop() || filepath;
-    document.getElementById('videoModalTitle').textContent = filename;
-    document.getElementById('videoPlayer').src = filepath;
-    document.getElementById('videoModal').style.display = 'block';
+    window.open(filepath, '_blank');
 }
+
+// open video in small player
+// function playVideo(filepath) {
+//     const filename = filepath.split('/').pop() || filepath.split('\\').pop() || filepath;
+//     document.getElementById('videoModalTitle').textContent = filename;
+//     document.getElementById('videoPlayer').src = filepath;
+//     document.getElementById('videoModal').style.display = 'block';
+// }
 
 function closeVideoModal() {
     const video = document.getElementById('videoPlayer');
