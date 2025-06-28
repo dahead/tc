@@ -27,16 +27,16 @@ go build -o tc main.go
 
 ```bash
 # Basic usage
-find /path/to/files -name "*.mp4" | ./app
+find /path/to/files -name "*.mp4" | ./tc
 
 # Sort by name instead of frequency
-find /path/to/files -type f | ./app -name
+find /path/to/files -type f | ./tc -name
 
 # Limit to top 50 tags
-ls *.* | ./app -amount 50
+ls *.* | ./tc -amount 50
 
 # Custom output file
-cat filelist.txt | ./app -output my-tagcloud.html
+cat filelist.txt | ./tc -output my-tagcloud.html
 ```
 
 ## Options
@@ -45,5 +45,3 @@ cat filelist.txt | ./app -output my-tagcloud.html
 -amount N: Show top N tags (default: 100)
 -output FILE: Output HTML file (default: tagcloud.html)
 -template DIR: Template directory (default: ./templates)
-
-## File Structure
