@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filename Tag Cloud</title>
+    <link rel="stylesheet" href="{{templateDir}}/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="tag-cloud">
+        {{range .Tags}}
+        <div class="tag"
+             style="left: {{.X}}%; top: {{.Y}}%; font-size: {{.FontSize}}px; color: {{.Color}};"
+             data-word="{{.Word}}"
+             data-files="{{.Files | toJSON}}">
+            {{.Word}} ({{.Count}})
+        </div>
+        {{end}}
+    </div>
+</div>
+
+<div class="stats">
+    <div>Total Tags: {{.TotalTags}}</div>
+    <div>Layout: {{.Layout}}</div>
+    <div>Range: {{.MinCount}}-{{.MaxCount}}</div>
+</div>
+
+<div id="fileModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+        <div class="file-list-container" id="fileListContainer"></div>
+    </div>
+</div>
+
+<div id="videoModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title" id="videoModalTitle"></h2>
+            <span class="close" onclick="closeVideoModal()">&times;</span>
+        </div>
+        <video id="videoPlayer" controls style="width: 100%; max-height: 60vh;"></video>
+    </div>
+</div>
+
+<script>
+    window.tagCloudData = {{. | toJSON}};
+</script>
+<script src="{{templateDir}}/script.js"></script>
+</body>
+</html>
