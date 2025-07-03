@@ -45,3 +45,11 @@ cat filelist.txt | ./tc -output my-tagcloud.html
 -amount N: Show top N tags (default: 100)
 -output FILE: Output HTML file (default: tagcloud.html)
 -template DIR: Template directory (default: ./templates)
+
+
+## Todo
+
+- more templates
+- optional: mini player
+- copy filename to clipboard on click
+- tag cloud of filename list also
